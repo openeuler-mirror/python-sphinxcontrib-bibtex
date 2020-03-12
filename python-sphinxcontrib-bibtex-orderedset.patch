@@ -1,0 +1,29 @@
+--- requirements.txt.orig	2018-04-19 03:45:15.000000000 -0600
++++ requirements.txt	2018-04-19 18:32:13.568268679 -0600
+@@ -2,5 +2,5 @@ pybtex>=0.20
+ pybtex-docutils>=0.2.0
+ six>=1.4.1
+ Sphinx>=1.0
+-oset>=0.1.3
++orderedset>=2.0
+ 
+--- sphinxcontrib/bibtex/cache.py.orig	2018-04-19 03:45:15.000000000 -0600
++++ sphinxcontrib/bibtex/cache.py	2018-04-19 18:32:13.584268627 -0600
+@@ -24,7 +24,7 @@ except ImportError:  # pragma: no cover
+ import ast
+ import collections
+ import copy
+-from oset import oset
++from orderedset import OrderedSet
+ import re
+ 
+ 
+@@ -200,7 +200,7 @@ class Cache:
+ 
+         self.bibfiles = {}
+         self._bibliographies = collections.defaultdict(dict)
+-        self._cited = collections.defaultdict(oset)
++        self._cited = collections.defaultdict(OrderedSet)
+         self._enum_count = {}
+ 
+     def purge(self, docname):
